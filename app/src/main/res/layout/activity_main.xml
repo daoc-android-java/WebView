@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content" >
+        
+        <EditText
+	        android:id="@+id/url"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:hint="Escriba una URL" />
+    
+	    <Button
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:onClick="irAUrl"
+	        android:text="Ir A..." />
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content" >
+	    
+	    <Button
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"     
+	        android:layout_weight="1"   
+	        android:onClick="irAJuego"
+	        android:text="file:///android_asset/index.html"/>
+	    
+	    <Button
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"        
+	        android:onClick="execJs"
+	        android:text="Exec JS"/>
+	    	    
+    </LinearLayout>
+    
+    <WebView 
+        android:id="@+id/web"
+        android:layout_weight="1"  
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" />
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content" >
+	    
+	    <Button
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"     
+	        android:layout_weight="1"   
+	        android:onClick="goBack"
+	        android:text="&lt;=="/>
+	    
+	    <Button
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"   
+	        android:layout_weight="1"
+	        android:onClick="reload"
+	        android:text="reload"/>
+	    	    
+	    <Button
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"     
+	        android:layout_weight="1"   
+	        android:onClick="goForward"
+	        android:text="==&gt;"/>	    
+	    
+    </LinearLayout>
+    
+</LinearLayout>

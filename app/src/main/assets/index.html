@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Tic Tac Toe</title>
+		<meta name="viewport" content="width=device-width"/>
+		<script>
+			function lanzarActividad(b) {
+				var a = Android.callActivity();
+				b.innerHTML = a;
+			}
+			function desdeAndroid(txt) {
+				var h = document.getElementById("header1");
+				h.style.background = "blue";
+				h.innerHTML = txt;
+			}
+		</script>
+	</head>
+
+	<body>
+	
+		<h1 id="header1"> Juegue al Tres en Raya </h1>
+		
+		<h2><a href="TTT.html">Ir al juego</a></h2>
+		
+		<button onclick="lanzarActividad(this)">Ir a SecondActivity</button>
+		
+	</body>
+
+</html>		

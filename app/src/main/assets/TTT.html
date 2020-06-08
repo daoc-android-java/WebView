@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Tic Tac Toe</title>
+		<meta name="viewport" content="width=device-width"/>
+		<style>
+			td {border:solid; width:5em; height:5em;}
+		</style>
+		<script>
+			var libres, tablero;
+			function verificaGanador(valor, mensaje) {
+				for(var i = 0; i < 3; i++) { //fila
+					if(tablero[i][0] + tablero[i][1] + tablero[i][2] == valor) {Android.showToast(mensaje); return true;}
+				}
+				for(var i = 0; i < 3; i++) { //columna
+					if(tablero[0][i] + tablero[1][i] + tablero[2][i] == valor) {Android.showToast(mensaje); return true;}
+				}
+				//diagonales
+				if(tablero[0][0] + tablero[1][1] + tablero[2][2] == valor) {Android.showToast(mensaje); return true;}
+				if(tablero[0][2] + tablero[1][1] + tablero[2][0] == valor) {Android.showToast(mensaje); return true;}
+				if(libres <= 0) {//empate
+					Android.showToast("Empate !!!");
+					return true
+				}
+				return false;
+			}
+			function juegaCompu() {
+				var rnd, fila, col;
+				while(true) {
+					rnd = Math.floor(Math.random() * 9);
+					fila = Math.floor(rnd/3);
+					col = rnd%3;
+					if(tablero[fila][col] == undefined) break;
+				}
+				libres--;
+				tablero[fila][col] = -1;
+				td = document.getElementById(rnd)
+				td.style.backgroundColor = "#00F";		
+			}
+			function juego(td) {
+				var fila = Math.floor(td.id/3);
+				var col = td.id%3;
+				if(tablero[fila][col] == undefined) {
+					libres--;
+					tablero[fila][col] = 1;
+					td.style.backgroundColor = "#F00";
+					if(verificaGanador(3, "Usted gana!!!")) return;
+					juegaCompu();
+					if(verificaGanador(-3, "Yo gano!!!")) return;
+				} else {
+					Android.showToast("Casilla ocupada. Juegue nuevamente.");
+				}
+			}
+			function reset() {
+				//!!!!! libres y tablero son globales
+				libres = 9;
+				tablero = new Array(3);
+				for(var i = 0; i < 3; i++) {
+					tablero[i] = new Array(3);
+				}
+			}			
+		</script>
+	</head>
+
+	<body onload="reset()">
+	
+		<h1> Tres en raya </h1>
+		
+		<h2>Juegue !!!</h2>
+		
+		<table>
+			<tr>
+				<td id="0" onclick="juego(this)"></td>
+				<td id="1" onclick="juego(this)"></td>
+				<td id="2" onclick="juego(this)"></td>
+			</tr>
+			<tr>
+				<td id="3" onclick="juego(this)"></td>
+				<td id="4" onclick="juego(this)"></td>
+				<td id="5" onclick="juego(this)"></td>
+			</tr>
+			<tr>
+				<td id="6" onclick="juego(this)"></td>
+				<td id="7" onclick="juego(this)"></td>
+				<td id="8" onclick="juego(this)"></td>
+			</tr>
+		</table>
+
+	</body>
+
+</html>
