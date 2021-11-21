@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "daoc.web"
         minSdkVersion 22
-        targetSdkVersion 29
+        targetSdkVersion 30
     }
 
     buildTypes {
@@ -17,6 +17,6 @@ android {
     }
 
     dependencies {
-        implementation 'com.android.support:support-compat:28.0.0'
+        implementation "androidx.core:core-ktx:1.6.0"
     }
 }
